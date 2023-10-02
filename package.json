@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./api/index.js"
+    "dev": "nodemon ./api/index.js",
+    "dev:mysql": "nodemon ./mysql/index.js",
+    "dev:post": "nodemon ./post/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +15,9 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "nanoid": "^3.3.6",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "request": "^2.88.2"
   }
 }

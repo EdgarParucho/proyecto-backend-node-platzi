@@ -11,14 +11,14 @@ module.exports = function(injectedStore) {
       ...data,
       password: await bcrypt.hash(data.password, 5),
     };
-    return store.upsert(TABLE, authData);
+    return store.upsert({ table: TABLE, body: authData });
   }
 
   async function login(username, password) {
     const data = await store.query(TABLE, { username });
     return bcrypt.compare(password, data.password)
       .then((equal) => {
-        if (equal) return auth.sign(data);
+        if (equal) return auth.sign({ ...data });
         else throw new Error("Invalid data.")
       })
   }
