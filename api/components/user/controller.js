@@ -3,12 +3,17 @@ const auth = require("../auth");
 
 const TABLE = "user";
 
-module.exports = function(injectedStore) {
-  
+module.exports = function(injectedStore, injectedCache) {
+  let cache = injectedCache || require("../../../store/dummy.js");
   let store = injectedStore || require("../../../store/dummy.js");
 
-  function list() {
-    return store.list(TABLE);
+  async function list() {
+    let users = await cache.list(TABLE);
+    if (users) return users;
+    console.log("Not found in cache");
+    users = await store.list(TABLE);
+    cache.upsert(TABLE, users); 
+    return users;
   }
 
   function get(id) {

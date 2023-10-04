@@ -6,18 +6,21 @@
   "scripts": {
     "dev": "nodemon ./api/index.js",
     "dev:mysql": "nodemon ./mysql/index.js",
-    "dev:post": "nodemon ./post/index.js"
+    "dev:post": "nodemon ./post/index.js",
+    "dev:redis": "nodemon ./cache/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "nanoid": "^3.3.6",
     "nodemon": "^3.0.1",
+    "redis": "^4.6.10",
     "request": "^2.88.2"
   }
 }
